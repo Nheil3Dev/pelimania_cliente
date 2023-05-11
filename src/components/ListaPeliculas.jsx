@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './ListaPeliculas.css'
 import { Pelicula } from './Pelicula'
 
@@ -6,31 +6,83 @@ import { Pelicula } from './Pelicula'
 // peliculas: peliculas de la lista
 // isUser: es verdadero cuando el componente se usa en el perfil de usuario.
 export function ListaPeliculas ({ peliculas, isUser }) {
-  // Estado que nos permite controlar si queremos ampliar la lista de peliculas visibles.
-  const [ampliar, setAmpliar] = useState(false)
-  // Estado que nos permite controlar el texto del botón.
-  const [boton, setBoton] = useState('Mostrar todas')
-  // calculo el ancho de la ventana disponible para mostrar más o menos peliculas
-  const anchoPantalla = ((window.innerWidth * 80 / 100) - 40) / 220
-  // modifico el array de peliculas que se mostrarán (sólo en el perfil de usuario)
-  const peliculasFiltro = (ampliar || !isUser) ? peliculas : peliculas.slice(0, anchoPantalla)
-  // Manejador del evento onclick:
-  const handleClick = () => {
-    // Cambiamos el valor del estado ampliar.
-    setAmpliar(!ampliar)
-    // Comprobamos el texto del botón
-    if (boton === 'Mostrar todas') {
-      // Actualizamos el texto del botón
-      setBoton('Mostrar menos')
-    } else {
-      // Actualizamos el texto del botón
-      setBoton('Mostrar todas')
-    }
-  }
+  return (
+    <>
+      {isUser
+        ? <ListaPeliculasUsuario peliculas={peliculas} isUser={isUser} />
+        : <ListaPeliculasBuscador peliculas={peliculas} />}
+    </>
+
+  )
+}
+
+export function ListaPeliculasBuscador ({ peliculas }) {
   return (
     <>
       <div className='movies-container'>
         <ul className='movies-container-list'>
+          {
+            peliculas.map(pelicula => (
+              <li key={pelicula.id}>
+                <Pelicula pelicula={pelicula} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </>
+  )
+}
+
+export function ListaPeliculasUsuario ({ peliculas, isUser }) {
+  const anchoPantalla = Math.floor(((window.innerWidth * 80 / 100) - 40) / 220)
+  const [ultimaPeli, setUltimaPeli] = useState(anchoPantalla)
+  const [peliculasFiltro, setPeliculasFiltro] = useState([])
+  const [visibleRight, setVisibleRight] = useState(true)
+  const [visibleLeft, setVisibleLeft] = useState(false)
+  const styleButtonRight = visibleRight ? 'more-button' : 'more-button hidden'
+  const styleButtonLeft = visibleLeft ? 'more-button' : 'more-button hidden'
+
+  useEffect(() => {
+    setPeliculasFiltro(peliculas.slice(ultimaPeli - anchoPantalla, ultimaPeli))
+  }, [ultimaPeli])
+
+  const handleClick = () => {
+    if (peliculas.length > ultimaPeli) {
+      if (visibleLeft === false) {
+        setVisibleLeft(true)
+      }
+      setUltimaPeli(ultimaPeli + 1)
+      setPeliculasFiltro(peliculas.slice(ultimaPeli - anchoPantalla, ultimaPeli))
+    }
+    if (peliculas.length - ultimaPeli === 1) {
+      setVisibleRight(false)
+    }
+  }
+
+  const handleClickReturn = () => {
+    if (ultimaPeli - anchoPantalla > 0) {
+      if (visibleRight === false) {
+        setVisibleRight(true)
+      }
+      setUltimaPeli(ultimaPeli - 1)
+      setPeliculasFiltro(peliculas.slice(ultimaPeli - anchoPantalla, ultimaPeli))
+    }
+    if (ultimaPeli - anchoPantalla === 1) {
+      setVisibleLeft(false)
+    }
+  }
+
+  return (
+    <>
+      <div className='movies-container-user'>
+        {peliculas.length > anchoPantalla &&
+          <button
+            className={styleButtonLeft}
+            onClick={handleClickReturn}
+          >{'<'}
+          </button>}
+        <ul className='movies-container-list-user'>
           {
             peliculasFiltro.map(pelicula => (
               <li key={pelicula.id}>
@@ -39,13 +91,14 @@ export function ListaPeliculas ({ peliculas, isUser }) {
             ))
           }
         </ul>
+        {peliculas.length > anchoPantalla &&
+          <button
+            className={styleButtonRight}
+            onClick={handleClick}
+          >
+            {'>'}
+          </button>}
       </div>
-      {
-        peliculas.length > anchoPantalla &&
-        isUser &&
-          <button className='more-button' onClick={handleClick}>{boton}</button>
-      }
     </>
-
   )
 }

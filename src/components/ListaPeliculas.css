@@ -16,6 +16,7 @@
     justify-content: start;
 }
 
+
 /* Estilo del botón cuando ponemos el ratón encima */
 .more-button:hover {
     border: 1px solid white;
@@ -24,6 +25,22 @@
 /* Estilo del botón cuando lo hemos pulsado */
 .more-button:focus {
     outline: none;
+}
+
+.movies-container-user {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.movies-container-list-user {
+    display: flex;
+    margin: 0 auto;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
 }
 
 /*
