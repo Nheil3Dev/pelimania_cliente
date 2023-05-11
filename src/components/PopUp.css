@@ -1,0 +1,39 @@
+/* Posicionamiento en la página */
+.pop-up {
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    top: 40%;
+}
+
+/* Estilo del contenedor */
+.pop-up-container {
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: #1A1A1ACC;
+    border: 1px solid #242424;
+}
+
+/* Estilo del contenedor de los botones */
+.pop-up-buttons {
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+
+/* Estilo de los botones */
+.pop-up-delete-button {
+    background-color: #242424;
+    border: 1px solid #1a1a1a;
+    color: white;
+}
+
+/* Estilo de los botonos cuando ponemos el ratón encima */
+.pop-up-delete-button:hover {
+    border: 1px solid white;
+}

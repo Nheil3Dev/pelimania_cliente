@@ -1,0 +1,32 @@
+/* Estilo del contenedor de los filtros */
+.admin-comments-form { 
+    margin-top: 40px; 
+    display: flex;
+    max-width: 85%;
+    justify-content: end;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Estilo del label de cada filtro */
+.first-filter label, .second-filter label, .third-filter label{
+    padding-right: 10px;
+}
+
+/* Estilo de los select de cada filtro */
+.first-filter select, .second-filter select, .third-filter select{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Adaptamos el filtro al tamaño de pantalla */
+@media (max-width: 400px) {
+    .admin-comments-form {
+        margin: 20px auto;
+        justify-content: center;
+    }
+
+    .first-filter select {
+        margin-top: 10px;
+    }
+}

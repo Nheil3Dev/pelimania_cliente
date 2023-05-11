@@ -1,0 +1,13 @@
+
+/* Estilo del contenedor de comentarios */
+.comments-container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo del contenedor de un comentario individual */
+.comments-container-single {
+    list-style: none;
+}

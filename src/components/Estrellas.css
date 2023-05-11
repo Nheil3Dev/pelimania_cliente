@@ -1,0 +1,67 @@
+/* Estilo contenedor de las estrellas */
+.comment-form-footer-stars {
+  display: flex;
+  gap: 5px;
+}
+/*
+.star {
+   width: 10px; 
+   height: 10px;
+   background-color: white;
+   color: transparent;
+   cursor: pointer;
+   transition: ease all 0.3;
+}
+*/
+/* El código de la estrella es copiado de internet, he modificado el estilo, lo he acabado usando por estética */
+.star {
+  position: relative;
+
+  display: inline-block;
+  width: 0;
+  height: 0;
+
+  margin-left: 0.9em;
+  margin-right: 0.9em;
+  margin-bottom: 1.2em;
+
+  border-right: 0.3em solid transparent;
+  border-bottom: 0.7em solid #fff;
+  border-left: 0.3em solid transparent;
+
+  /* Controlls the size of the stars. */
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.star:before, .star:after {
+    content: "";
+
+    display: block;
+    width: 0;
+    height: 0;
+
+    position: absolute;
+    top: 0.6em;
+    left: -1em;
+
+    border-right: 1em solid transparent;
+    border-bottom: 0.7em solid #fff;
+    border-left: 1em solid transparent;
+
+    transform: rotate(-35deg);
+}
+
+.star:after {
+    transform: rotate(35deg);
+}
+
+.checked, .checked:after, .checked:before {
+    border-bottom-color: aquamarine;
+}
+
+/* Estilo de las estrellas cuando el comentario tiene dos estrellas o menos*/
+.badComment, .badComment:after, .badComment:before {
+  border-bottom-color: rgb(255, 127, 170);
+}

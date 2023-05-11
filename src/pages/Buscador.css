@@ -1,0 +1,38 @@
+/* Encabezado de la página */
+.title {
+    margin-top: 50px;
+    text-shadow: 2px 2px 0 black;
+}
+
+/* Estilo del formulario */
+.movie-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    height: 40px;
+}
+ /* Estilo de los elementos del formulario */
+.movie-search-form-input {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    color: #242424;
+}
+
+/* Estilo del botón del formulario */
+input[type="submit"].movie-search-form-input {
+    background-color: #1A1A1A;
+    border: 1px solid #1A1A1A;
+    color: white;
+    font-weight: 600;
+    padding: 20px; 
+    cursor: pointer;
+}
+
+/* Estilo del botón del formulario cuando ponemos el ratón sobre él */
+input[type="submit"].movie-search-form-input:hover {
+    border: 1px solid white;
+}

@@ -1,0 +1,108 @@
+/* Estilo de los enlaces (componente Link) */
+a {
+    text-decoration: none;
+}
+
+/* Estilo del contenedor de comentarios */
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 70%;
+    min-width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/* Estilo de la cabecera del componente */
+.comment-container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    background: #1a1a1a;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+}
+
+/* Estilo del nombre de usuario */
+.comment-container-header-user-name {
+    color: white;
+    margin: 0;
+    max-width: 300px;
+}
+
+/* Estilo del nombre de usuario cuando ponemos el ratón encima */
+.comment-container-header-user-name:hover {
+    color: aquamarine;
+}
+
+/* En el perfil de admin habrá dos elementos en vez de uno asi que los posicionamos*/
+.comment-container-header-user-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* Estilo de la fecha */
+.comment-container-header-date {
+    color:white;
+    margin: 0;
+}
+
+/* Estilo de la sección inferior del componente */
+.comment-container-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    background-color: white;
+    background: linear-gradient(#1a1a1a, rgba(255, 255, 255, 0.9) 5%);
+    color: #1a1a1a;
+    padding: 10px 20px;
+    text-align: start;
+}
+
+/* Añade efecto difuminado al footer */
+.blur {
+    filter:blur(4px);
+    cursor: pointer;
+}
+
+/* Modificamos la propiedad margin del párrafo */
+.comment-container-footer-text {
+    margin: 0;
+}
+
+/* Estilos del botón 'Borrar' (sólo para perfil admin)*/
+.delete-button {
+    background-color: #1a1a1a;
+    border: 2px solid #1a1a1a;
+    color: white;
+    transition: 0.3s ease all;
+    margin-left: 10px;
+}
+
+/* Estilo del botón cuando ponemos el ratón sobre él */
+.delete-button:hover {
+    border: 2px solid white;
+}
+
+/* Adapta el estilo al ancho de pantalla del dispositivo */
+@media (max-width: 900px) {
+    .comment-container-header {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .comment-container-header-date {
+        display:none;
+    }
+    .comment-container-header-user-container {
+        order: -1;
+    }
+    .comment-container-header-user-name {
+        max-width:none;
+    }
+}

@@ -1,0 +1,22 @@
+/* Estilo del contenedor de enlaces */
+.anchors {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+/* Ocultamos el input tipo radio */
+.anchors-input {
+    display: none;
+}
+
+/* Cambiamos el tipo de cursor de los labels */
+.anchors-labels {
+    cursor: pointer;
+}
+
+/* Estilo cuando está seleccionado */
+.visible {
+    border-bottom: 1px solid aquamarine;
+}

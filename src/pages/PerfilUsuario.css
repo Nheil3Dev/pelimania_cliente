@@ -1,0 +1,37 @@
+/* Contenedor de la página */
+.main-user {
+    margin-top: 50px;
+}
+
+/* Estilo del nombre del usuario del encabezado de la página */
+.user-title-color {
+    color: aquamarine;
+}
+
+/* Estilo del encabezado de la página */
+.user-title {
+    text-shadow: 2px 2px 0 black;
+}
+
+/* Estilo de los títulos de cada sección de la página */
+.user-sec-title {
+    max-width: 80%;
+    min-width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    text-align: start;
+}
+
+/* Estilo del titulo de la sección comentarios */
+.user-sec-title:last-of-type {
+    margin-top: 40px;
+}
+
+/* Estilo de la lista de comentarios */
+.user-comments {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 36px;
+}

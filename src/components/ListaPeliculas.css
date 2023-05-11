@@ -1,0 +1,49 @@
+/* Contenedor de las películas */
+.movies-container {
+    display: flex;
+    justify-content: center;
+    max-width: 80%;
+    min-width: 70%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+ /* Estilo de la lista de películas */
+.movies-container-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    list-style: none;
+    justify-content: start;
+}
+
+/* Estilo del botón cuando ponemos el ratón encima */
+.more-button:hover {
+    border: 1px solid white;
+}
+
+/* Estilo del botón cuando lo hemos pulsado */
+.more-button:focus {
+    outline: none;
+}
+
+/*
+.movies-container-list {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    max-width: 1140px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    gap: 30px;
+}
+
+.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+*/
+
+
+

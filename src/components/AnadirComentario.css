@@ -1,0 +1,67 @@
+/* Estilo del formulario */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px 0;
+    gap: 10px;
+}
+
+/* Estilo del textarea */
+.comment-form textarea {
+    background-color: white;
+    color: #242424;
+    resize: none;
+    padding: 15px;
+    min-height: 77px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Cambio de cursor para el checkbox y su label */
+.comment-form-spoiler-check, .comment-form-spoiler-text {
+    cursor: pointer;
+}
+
+/* Estilo de la sección inferior del componente */
+.comment-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+/* Estilo del botón 'Añadir comentario' */
+.comment-form input[type=submit] {
+    padding: 15px;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    max-width: 200px;
+    background-color: #1a1a1a;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Estilo del botón cuando ponemos el ratón encima */
+.comment-form input[type=submit]:hover {
+    border: 1px solid white;
+}
+
+/* Estilo cambia a partir de un ancho de pantalla */
+@media (max-width: 535px) {
+    .comment-form-footer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 870px) {
+    .comment-form-footer input {
+        order: 4;
+    }    
+}
+

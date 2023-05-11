@@ -1,0 +1,81 @@
+/* Estilo de la cabecera de la página */
+header {
+    position: sticky;
+    z-index: 1;
+    background-color: aquamarine;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Estilo del logo */
+.logo-header {
+    font-weight: 900;
+    margin: 8px 20px;
+    padding: 2px 6px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    color: white;
+}
+
+/* Estilo del logo al poner el ratón encima */
+.logo-header:hover {
+    transform: scale(110%);
+    transition: 0.2s ease all;
+}
+
+/* Estilo del contenedor de los links */
+.links-header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+/* Estilo del botón */
+.sesion-header {
+    padding-right: 20px;
+}
+
+/* Estilo del botón cuando ponemos el ratón encima */
+.sesion-header button:hover {
+    border: 1px solid white;
+}
+
+/* Estilo de cada link */
+.header-links {
+    cursor: pointer;
+    color: #1a1a1a;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Estilo de cada link cuando ponemos el ratón encima */
+.header-links:hover {
+    transform:translateY(-3px);
+    border-bottom: 2px solid white;
+    transition: 0.2s ease all;
+}
+
+/* Estilo del link cuando lo pulsamos o estamos dentro de esa sección */
+.activo {
+    border-bottom: 2px solid #1a1a1a;
+}
+
+@media (max-width: 610px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10px;    
+    }
+    .links-header {
+        order: 1;
+    }
+    .sesion-header {
+        padding-right: 0;
+    }
+}

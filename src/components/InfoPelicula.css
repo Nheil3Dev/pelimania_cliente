@@ -1,0 +1,91 @@
+/* Contenedor */
+.info {
+    position: relative;
+    background: linear-gradient(to bottom, #242424, black);
+}
+
+/* Estilo del título de la película */
+.info-title {
+    margin: 0;
+    padding: 10px 0;
+    text-shadow: 3px 3px 0 black;
+}
+
+/* Estilo del contenedor de todo menos el título*/
+.info-info {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: end;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+/* Para separar el botón seguir del resto */
+.info-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Estilo de la foto de la película */
+.info-content-photo {
+    height: 200px;
+    width: auto;
+    border-radius: 10px;
+    border: 1px solid #1a1a1a;
+}
+
+/* Contenedor de la información */
+.info-content-data {
+    text-align: left;
+    display: flex;
+}
+
+/* Estilos de la parte fija y la parte dinámica de la info */
+.info-content-data-headers, .info-content-data-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilo de la parte fija de la info (Al final no lo muestro por estética) */
+.info-content-data-headers {
+    display: none;
+    color: aquamarine;
+    margin-right: 20px;
+}
+
+/* Estilo de cada elemento de la info */
+.info-content-data p {
+    margin: 10px 0;
+
+}
+
+/* Estilo de la nota */
+.info-content-data-rating {
+    font-size: 2rem;
+    color:aquamarine;
+}
+
+/* Estilo de una parte de la nota */
+.info-content-data-rating small {
+    margin-left: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Si una pelicula tiene de nota menos de 5 */
+.bad {
+    color: rgb(255, 127, 170);
+}
+
+/* Adapta el estilo al tamaño de pantalla */
+@media (max-width: 830px) {
+    .info-info {
+        flex-direction: column;
+        align-content: space-between;
+    }
+}

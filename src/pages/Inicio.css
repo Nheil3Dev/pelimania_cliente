@@ -1,0 +1,46 @@
+/* Estilo de la página */
+.home-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    /*background: linear-gradient(to top, black, #1a1a1a 40%,#242424 60%);*/
+}
+
+/* Estilo del botón */
+.home-button {
+    background-color: #1a1a1a;
+    border: 2px solid #1a1a1a;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Estilo del botón cuando ponemos el ratón encima */
+.home-button:hover {
+    border: 2px solid white;
+}
+
+/* Estilo de la palabra PELIMANIA del encabezado */
+.home-title-color {
+    color: aquamarine;
+}
+
+/* Estilo del encabezado */
+.home-title {
+    text-shadow: 2px 2px 0 black;
+}
+
+/* Estilo del párrafo */
+.home-text {
+    line-height: 2rem;
+}
+
+/* Efecto blur cuando pulsamos el botón */
+.blur-home {
+    filter:blur(10px);
+}
