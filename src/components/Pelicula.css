@@ -59,6 +59,12 @@
     border-radius: 10px;
 }
 
+.movie-title {
+    font-size: 2em;
+    font-weight: bolder;
+    line-height: 1.1em;
+}
+
 .movie-info-user {
     position: absolute;
     display: flex;
