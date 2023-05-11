@@ -35,7 +35,8 @@ export function ListaPeliculasBuscador ({ peliculas }) {
 }
 
 export function ListaPeliculasUsuario ({ peliculas, isUser }) {
-  const anchoPantalla = Math.floor(((window.innerWidth * 80 / 100) - 40) / 220)
+  const [width, setWidth] = useState(window.innerWidth)
+  const anchoPantalla = Math.floor(((width * 80 / 100) - 40) / 220)
   const [ultimaPeli, setUltimaPeli] = useState(anchoPantalla)
   const [peliculasFiltro, setPeliculasFiltro] = useState([])
   const [visibleRight, setVisibleRight] = useState(true)
@@ -45,7 +46,14 @@ export function ListaPeliculasUsuario ({ peliculas, isUser }) {
 
   useEffect(() => {
     setPeliculasFiltro(peliculas.slice(ultimaPeli - anchoPantalla, ultimaPeli))
-  }, [ultimaPeli])
+    const handleResize = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [ultimaPeli, width])
 
   const handleClick = () => {
     if (peliculas.length > ultimaPeli) {
