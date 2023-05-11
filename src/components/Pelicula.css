@@ -59,10 +59,11 @@
     border-radius: 10px;
 }
 
-.movie-title {
+.movie-title-user {
     font-size: 2em;
     font-weight: bolder;
     line-height: 1.1em;
+    margin: 0;
 }
 
 .movie-info-user {

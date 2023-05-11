@@ -50,7 +50,7 @@ export function PeliculaPerfil ({ pelicula }) {
         />
         <div className={style}>
           <p className='movie-year'>{pelicula.anho}</p>
-          <p className='movie-title'>{pelicula.titulo}</p>
+          <p className='movie-title-user'>{pelicula.titulo}</p>
         </div>
       </div>
     </Link>
