@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BotonSeguir } from './BotonSeguir'
 import './Pelicula.css'
@@ -26,13 +27,32 @@ export function PeliculaBuscador ({ pelicula }) {
 // Componente que se encarga de renderizar una película en el perfil de Usuario.
 // pelicula: datos de la película
 export function PeliculaPerfil ({ pelicula }) {
+  const [selected, setSelected] = useState(false)
+  const style = selected ? 'movie-info-user' : 'movie-info-user hidden'
+  const handleMouseMove = () => {
+    setSelected(true)
+  }
+  const handleMouseLeave = () => {
+    setSelected(false)
+  }
+
   return (
     <Link to={`/Pelimania/${pelicula.id}`}>
-      <img
-        className='movie-photo'
-        src={pelicula.foto}
-        alt={pelicula.titulo}
-      />
+      <div
+        className='movie-container-user'
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <img
+          className='movie-photo-user'
+          src={pelicula.foto}
+          alt={pelicula.titulo}
+        />
+        <div className={style}>
+          <p className='movie-year'>{pelicula.anho}</p>
+          <h3>{pelicula.titulo}</h3>
+        </div>
+      </div>
     </Link>
   )
 }
