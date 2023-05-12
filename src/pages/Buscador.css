@@ -32,6 +32,11 @@ input[type="submit"].movie-search-form-input {
     cursor: pointer;
 }
 
+input[type="text"].movie-search-form-input {
+    font-size: 14px;
+    color: #1A1A1A;
+}
+
 /* Estilo del botón del formulario cuando ponemos el ratón sobre él */
 input[type="submit"].movie-search-form-input:hover {
     border: 1px solid white;

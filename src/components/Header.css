@@ -38,6 +38,10 @@ header {
 
 /* Estilo del botón */
 .sesion-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     padding-right: 20px;
 }
 
@@ -64,6 +68,12 @@ header {
 /* Estilo del link cuando lo pulsamos o estamos dentro de esa sección */
 .activo {
     border-bottom: 2px solid #1a1a1a;
+}
+
+.sesion-header-seach-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 @media (max-width: 610px) {

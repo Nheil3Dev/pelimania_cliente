@@ -33,7 +33,7 @@ export function FormularioBuscador ({ ultimaBusqueda }) {
         type='text'
         value={busqueda}
         onChange={handleChange}
-        placeholder='🔍'
+        placeholder='Batman, Harry Potter...'
         className='movie-search-form-input-header'
       />
       <input type='submit' value='Buscar' className='movie-search-form-input-submit-header' />

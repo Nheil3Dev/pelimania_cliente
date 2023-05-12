@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import lupa from '../../public/lupa.svg'
 import { SesionContext } from '../context/sesion'
 import { FormularioBuscador } from './FormularioBuscador'
 import './Header.css'
@@ -37,6 +38,7 @@ export function Header ({ setVisibleLogin, ultimaBusqueda }) {
         </nav>}
       <div className='sesion-header'>
         <FormularioBuscador ultimaBusqueda={ultimaBusqueda} />
+        <img className='sesion-header-seach-icon' src={lupa} alt='buscar' />
         <button onClick={() => {
           if (usuario) {
             setUsuario('')
