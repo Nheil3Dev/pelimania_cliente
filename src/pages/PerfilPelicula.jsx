@@ -7,14 +7,14 @@ import { InfoPelicula } from '../components/InfoPelicula'
 import { usePelicula } from '../hooks/usePelicula'
 import './PerfilPelicula.css'
 
-export default function PerfilPelicula () {
+export default function PerfilPelicula ({ ultimaBusqueda }) {
   // Obtenemos la información necesaria del custom hook usePelicula.
   const { pelicula, siguiendo, setSiguiendo } = usePelicula()
   // Estado para controlar el componente que se renderiza (Comentarios o InfoExtraPelicula)
   const [visible, setVisible] = useState(false)
   return (
     <>
-      <Header />
+      <Header ultimaBusqueda={ultimaBusqueda} />
       <main className='main-movie-profile'>
         <InfoPelicula pelicula={pelicula} setRefresh={setSiguiendo} />
         <Enlaces setVisible={setVisible} visible={visible} opcion1='Información adicional' opcion2='Comentarios' />

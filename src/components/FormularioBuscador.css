@@ -1,0 +1,27 @@
+.movie-search-form-header {
+    position: absolute;
+    right: 120px;
+    top: 10px;
+}
+
+.movie-search-form-input-submit-header {
+    visibility: hidden;
+}
+
+.movie-search-form-input-header {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: aquamarine;
+    border: none;
+    width: 40px;
+    color: transparent;
+    font-size: 14px;
+}
+
+.movie-search-form-input-header:focus {
+    width: 200px;
+    outline: none;
+    background-color: white;
+    color: #1a1a1a;
+    padding-left: 20px;
+}

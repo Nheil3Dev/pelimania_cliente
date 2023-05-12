@@ -23,12 +23,12 @@ function App () {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/Pelimania/' element={<Inicio />} />
-          <Route path='/Pelimania/admin' element={<Admin />} />
+          <Route path='/Pelimania/' element={<Inicio ultimaBusqueda={ultimaBusqueda} />} />
+          <Route path='/Pelimania/admin' element={<Admin ultimaBusqueda={ultimaBusqueda} />} />
           <Route path='/Pelimania/buscador' element={<Buscador ultimaBusqueda={ultimaBusqueda} />} />
-          <Route path='/Pelimania/perfil' element={<PerfilUsuario />} />
-          <Route path='/Pelimania/perfil/:usuario' element={<PerfilUsuario amigo />} />
-          <Route path='/Pelimania/:id' element={<PerfilPelicula />} />
+          <Route path='/Pelimania/perfil' element={<PerfilUsuario ultimaBusqueda={ultimaBusqueda} />} />
+          <Route path='/Pelimania/perfil/:usuario' element={<PerfilUsuario amigo ultimaBusqueda={ultimaBusqueda} />} />
+          <Route path='/Pelimania/:id' element={<PerfilPelicula ultimaBusqueda={ultimaBusqueda} />} />
         </Routes>
       </BrowserRouter>
     </>

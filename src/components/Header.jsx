@@ -1,11 +1,12 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { SesionContext } from '../context/sesion'
+import { FormularioBuscador } from './FormularioBuscador'
 import './Header.css'
 
 // Componente que renderiza el Header
 // setVisibleLogin:
-export function Header ({ setVisibleLogin }) {
+export function Header ({ setVisibleLogin, ultimaBusqueda }) {
   // Obtenemos los datos necesarios del contexto.
   const { usuario, setUsuario, setSesion, setAdmin } = useContext(SesionContext)
   // Función para redireccionar.
@@ -35,6 +36,7 @@ export function Header ({ setVisibleLogin }) {
           <Link to='/Pelimania/admin' className={styleAdmin}>ADMIN</Link>
         </nav>}
       <div className='sesion-header'>
+        <FormularioBuscador ultimaBusqueda={ultimaBusqueda} />
         <button onClick={() => {
           if (usuario) {
             setUsuario('')
