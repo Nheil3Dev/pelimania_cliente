@@ -1,10 +1,11 @@
 /* Estilo contenedor de la película */
 .movie-container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    position: relative;
-    display: inline-block;
     max-width: 200px;
     margin: 0 auto;
+    gap: 10px;
 }
 
 /* Estilo de la foto */

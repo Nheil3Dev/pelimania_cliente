@@ -9,15 +9,7 @@ export function PeliculaBuscador ({ pelicula }) {
   return (
     <>
       <article className='movie-container'>
-        <p className='movie-year'>{pelicula.anho}</p>
-        <h3 className='movie-title'>{pelicula.titulo}</h3>
-        <Link to={`/Pelimania/${pelicula.id}`}>
-          <img
-            className='movie-photo'
-            src={pelicula.foto}
-            alt={pelicula.titulo}
-          />
-        </Link>
+        <PeliculaPerfil pelicula={pelicula} />
         <BotonSeguir pelicula={pelicula} />
       </article>
     </>
