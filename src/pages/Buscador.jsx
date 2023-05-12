@@ -5,9 +5,9 @@ import './Buscador.css'
 
 // Componente que se encarga de renderizar la página del buscador
 // ultimaBusqueda: valor de la última busqueda realizada.
-export default function Buscador ({ ultimaBusqueda }) {
+export default function Buscador () {
   // Obtenemos los datos necesarios del custom hook useBuscador
-  const { obtenerPeliculas, busqueda, setBusqueda, peliculas, setPeliculas, error } = useBuscador({ ultimaBusqueda })
+  const { obtenerPeliculas, busqueda, setBusqueda, peliculas, setPeliculas, error, ultimaBusqueda } = useBuscador()
 
   // Manejador del evento onSubmit
   const handleSubmit = async (event) => {

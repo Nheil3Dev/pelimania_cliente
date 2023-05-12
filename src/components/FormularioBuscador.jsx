@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import { useBuscador } from '../hooks/useBuscador'
 import './FormularioBuscador.css'
 
-export function FormularioBuscador ({ ultimaBusqueda }) {
-  const { obtenerPeliculas, busqueda, setBusqueda, setPeliculas } = useBuscador({ ultimaBusqueda })
+export function FormularioBuscador () {
+  const { obtenerPeliculas, busqueda, setBusqueda, setPeliculas, ultimaBusqueda } = useBuscador()
   const navigate = useNavigate()
   // Manejador del evento onSubmit
   const handleSubmit = async (event) => {

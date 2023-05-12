@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { SearchContext } from '../context/search'
 import { URLS } from '../utils/const'
 
-export function useBuscador ({ ultimaBusqueda }) {
+export function useBuscador () {
+  const ultimaBusqueda = useContext(SearchContext)
   // Estado para controlar las búsquedas.
   // Valor por defecto la referencia de la ultima búsqueda.
   const [busqueda, setBusqueda] = useState(ultimaBusqueda.current)

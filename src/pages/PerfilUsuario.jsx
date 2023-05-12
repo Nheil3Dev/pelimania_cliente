@@ -6,12 +6,12 @@ import './PerfilUsuario.css'
 
 // Componente que se encarga de renderizar la página perfil de usuario
 // amigo: será true cuando el perfil a renderizar sea diferente al del usuario (de otro usuario)
-export default function PerfilUsuario ({ amigo, ultimaBusqueda }) {
+export default function PerfilUsuario ({ amigo }) {
   // Obtenemos los datos necesarios del custom hook useUsuario.
   const { peliculasUsuario, comentarios, usuario } = useUsuario({ amigo })
   return (
     <>
-      <Header ultimaBusqueda={ultimaBusqueda} />
+      <Header />
       <main className='main-user'>
         <h1 className='user-title'>{amigo ? 'Perfil de ' : 'Hola '}<span className='user-title-color'>{usuario}</span></h1>
         <h2 className='user-sec-title'>Siguiendo:</h2>

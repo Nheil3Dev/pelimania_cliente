@@ -4,7 +4,7 @@ import { SesionContext } from '../context/sesion'
 import Login from '../pages/Login'
 import './Inicio.css'
 
-export default function Inicio ({ ultimaBusqueda }) {
+export default function Inicio () {
   // Obtenemos el usuario del contexto.
   const { usuario } = useContext(SesionContext)
   // Estado para controlar la visibilidad de la página de login
@@ -21,7 +21,7 @@ export default function Inicio ({ ultimaBusqueda }) {
   }
   return (
     <>
-      <Header setVisibleLogin={setVisibleLogin} ultimaBusqueda={ultimaBusqueda} />
+      <Header setVisibleLogin={setVisibleLogin} />
       <main className={mainStyle} onKeyDown={pressEsc} onClick={() => { if (visibleLogin) setVisibleLogin(false) }}>
         <h1 className='home-title'>Bienvenid@ a <span className='home-title-color'>PELIMANIA</span></h1>
         <p className='home-text'>
