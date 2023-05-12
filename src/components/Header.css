@@ -88,4 +88,7 @@ header {
     .sesion-header {
         padding-right: 0;
     }
+    .sesion-header-seach-icon {
+        display: none;
+    }
 }

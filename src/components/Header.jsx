@@ -7,7 +7,7 @@ import './Header.css'
 
 // Componente que renderiza el Header
 // setVisibleLogin:
-export function Header ({ setVisibleLogin, ultimaBusqueda }) {
+export function Header ({ setVisibleLogin, isBuscador }) {
   // Obtenemos los datos necesarios del contexto.
   const { usuario, setUsuario, setSesion, setAdmin } = useContext(SesionContext)
   // Función para redireccionar.
@@ -37,8 +37,11 @@ export function Header ({ setVisibleLogin, ultimaBusqueda }) {
           <Link to='/Pelimania/admin' className={styleAdmin}>ADMIN</Link>
         </nav>}
       <div className='sesion-header'>
-        <FormularioBuscador ultimaBusqueda={ultimaBusqueda} />
-        <img className='sesion-header-seach-icon' src={lupa} alt='buscar' />
+        {!isBuscador && usuario &&
+          <>
+            <FormularioBuscador />
+            <img className='sesion-header-seach-icon' src={lupa} alt='buscar' />
+          </>}
         <button onClick={() => {
           if (usuario) {
             setUsuario('')

@@ -32,7 +32,7 @@ export default function Buscador () {
   }
   return (
     <>
-      <Header ultimaBusqueda={ultimaBusqueda} />
+      <Header ultimaBusqueda={ultimaBusqueda} isBuscador />
       <h1 className='title'>Buscador de películas</h1>
       <form className='movie-search-form' onSubmit={handleSubmit}>
         <input
