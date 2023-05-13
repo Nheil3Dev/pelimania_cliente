@@ -1,0 +1,57 @@
+.header-bars {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    display: none;
+}
+
+.header-drop-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    overflow: visible;
+    height: 170px;
+    top: 56px;
+    right: 0;
+    z-index: 1;
+    background-color: #1a1a1a;
+    padding: 20px 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.header-drop-menu a:last-of-type {
+    background-color: aquamarine;
+    color: #1a1a1a;
+    font-weight: bolder;
+    border-radius: 10px;
+    padding: 10px 40px;
+    width: 100%;
+}
+
+.invisible-drop-menu {
+    visibility: hidden;
+}
+
+.header-drop-menu-links {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.header-drop-menu-link {
+    padding: 0 20px;
+    color: white;
+}
+
+#bars {
+    display: none;
+}
+
+@media (max-width: 950px) {
+    .header-bars {
+        display: block;
+        position: absolute;
+        right: 0;
+    }
+}

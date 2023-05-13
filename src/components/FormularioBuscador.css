@@ -31,8 +31,8 @@
     text-indent: 0%;
 }
 
-@media (max-width: 610px) {
+@media (max-width: 950px) {
     .movie-search-form-header {
-       display: none;
-    }
+        right: 50px;
+     }
 }

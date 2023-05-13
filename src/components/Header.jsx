@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import lupa from '../../public/lupa.svg'
 import { SesionContext } from '../context/sesion'
+import { DropMenuHeader } from './DropMenuHeader'
 import { FormularioBuscador } from './FormularioBuscador'
 import './Header.css'
 
@@ -19,6 +20,20 @@ export function Header ({ setVisibleLogin, isBuscador }) {
   const stylePerfil = perfil.includes('perfil') ? (perfil.includes('perfil/') ? 'header-links' : 'header-links activo') : 'header-links'
   // Estilo del Link 'Admin'
   const styleAdmin = window.location.pathname.toString().includes('admin') ? 'header-links activo' : 'header-links'
+
+  const styleButton = usuario ? 'sesion-on' : 'sesion-header-button'
+
+  const handleClick = () => {
+    if (usuario) {
+      setUsuario('')
+      setSesion(false)
+      setAdmin(false)
+      window.localStorage.clear()
+      navigate('/Pelimania/')
+    } else {
+      setVisibleLogin(true)
+    }
+  }
 
   return (
     <header>
@@ -42,20 +57,10 @@ export function Header ({ setVisibleLogin, isBuscador }) {
             <FormularioBuscador />
             <img className='sesion-header-seach-icon' src={lupa} alt='buscar' />
           </>}
-        <button onClick={() => {
-          if (usuario) {
-            setUsuario('')
-            setSesion(false)
-            setAdmin(false)
-            window.localStorage.clear()
-            navigate('/Pelimania/')
-          } else {
-            setVisibleLogin(true)
-          }
-        }}
-        >
+        <button className={styleButton} onClick={handleClick}>
           {usuario ? 'Cerrar sesión' : 'Iniciar sesión'}
         </button>
+        {usuario && <DropMenuHeader props={{ setUsuario, setSesion, setAdmin, setVisibleLogin, usuario }} />}
       </div>
     </header>
   )
