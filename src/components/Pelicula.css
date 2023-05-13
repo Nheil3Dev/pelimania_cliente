@@ -1,10 +1,11 @@
 /* Estilo contenedor de la película */
 .movie-container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    position: relative;
-    display: inline-block;
     max-width: 200px;
     margin: 0 auto;
+    gap: 10px;
 }
 
 /* Estilo de la foto */
@@ -19,6 +20,8 @@
 /* Estilo de la foto cuando ponemos el ratón encima */
 .movie-photo:hover {
     transform: scale(1.05);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.6);
 }
 
 /* Estilo del título de la película */
@@ -32,6 +35,54 @@
 .movie-year {
     margin: 0;
     color: aquamarine;
+    font-weight: bold;
 }
 
+/* Estilos del perfil de usuario */
 
+.movie-container-user {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    transition: all 0.3s ease;
+}
+
+.movie-container-user:hover {
+    transform: scale(1.05);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.6);
+}
+
+.movie-photo-user {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.movie-title-user {
+    font-size: 2em;
+    font-weight: bolder;
+    line-height: 1.1em;
+    margin: 0;
+}
+
+.movie-info-user {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius:  9.5px;
+    padding: 0 10px;
+    padding-top: 20px;
+}
+
+.hidden {
+    visibility: hidden;
+}

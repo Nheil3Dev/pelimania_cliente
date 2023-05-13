@@ -7,14 +7,14 @@
 
 /* Estilos del botón */
 .movie-form-input {
+    text-align: center;
     border: 1px solid #1a1a1a;
     background-color: #1a1a1a;
     border-radius: 10px;  
     color: white;  
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     max-width: 200px;
-    max-height: 40px;
     cursor: pointer;
     transition: 0.3s ease all;
     font-weight: 600;
