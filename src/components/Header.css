@@ -45,7 +45,7 @@ header {
 }
 
 /* Estilo del botón cuando ponemos el ratón encima */
-.sesion-header-button:hover {
+.sesion-on:hover {
     border: 1px solid white;
 }
 
