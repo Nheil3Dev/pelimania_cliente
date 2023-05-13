@@ -18,6 +18,7 @@ export default function Login ({ pressEsc }) {
     const nuevoNombre = evento.target.value
     // Actualiza el valor de la variable sin espacios en blanco
     setNombreUsuario(nuevoNombre.trim())
+    setError('')
   }
 
   // Controla el valor de la entrada contraseña cada vez que cambia su valor
@@ -26,6 +27,7 @@ export default function Login ({ pressEsc }) {
     const nuevaContrasena = evento.target.value
     // Actualiza el valor de la variable sin espacios en blanco
     setContrasena(nuevaContrasena.trim())
+    setError('')
   }
 
   const pressEspace = (evento) => {

@@ -101,6 +101,7 @@
 */
 
 .entry-form-error {
+    margin-top: 10px;
     color: rgb(255, 127, 170);
 }
 /* Estilo del contenedor de aviso de creación de usuario */
@@ -114,5 +115,6 @@
 }
 */
 .entry-form-anadido {
+    margin-top: 10px;
     color: aquamarine;
 }
