@@ -36,3 +36,16 @@
         right: 50px;
      }
 }
+
+@media (max-width: 450px) {
+    .movie-search-form-input-header:focus {
+        position: absolute;
+        top: 50px;
+        width: 90vw;
+        left: 50%;
+        transform: translateX(-92%);
+    }
+    .movie-search-form-input-header {
+        transition: 0s ease all;
+    }
+}
