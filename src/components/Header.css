@@ -58,18 +58,21 @@ header {
     color: #1a1a1a;
     font-weight: 700;
     text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.2s ease all;  
 }
 
 /* Estilo de cada link cuando ponemos el ratón encima */
 .header-links:hover {
-    transform:translateY(-3px);
-    border-bottom: 2px solid white;
-    transition: 0.2s ease all;
+    background-color: white;
+    color: #1a1a1a;
 }
 
 /* Estilo del link cuando lo pulsamos o estamos dentro de esa sección */
 .activo {
-    border-bottom: 2px solid #1a1a1a;
+    color: white;
+    background-color: #1a1a1a;
 }
 
 .sesion-header-seach-icon {
