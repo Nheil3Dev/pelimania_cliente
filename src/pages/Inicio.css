@@ -38,6 +38,7 @@
 /* Estilo del párrafo */
 .home-text {
     line-height: 2rem;
+    font-size: 18px;
 }
 
 /* Efecto blur cuando pulsamos el botón */

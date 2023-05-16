@@ -43,16 +43,33 @@
     padding: 0;
 }
 
-@media only screen and (max-width: 820px) and (orientation: portrait) {
-    .movies-container-list-user {
-        overflow: hidden;
+@media (max-width: 1200px) {
+    .movies-container-user {
+        max-width: 90%;
+    }
+    .movies-container {
+        max-width: 90%;
     }
 }
 
-@media (max-width: 400px) {
+@media only screen and (max-width: 920px) and (orientation: portrait) {
+    .movies-container-list-user {
+        overflow: hidden;
+    }
+    .movies-container-list {
+        justify-content: center;
+        padding: 0;
+    }
+}
+
+@media (max-width: 450px) {
     .movies-container-user {
         gap: 25px;
         max-width: 100%;
+    }
+    .movies-container-list {
+        flex-direction: column;
+        flex-wrap: nowrap;
     }
 }
 /*
