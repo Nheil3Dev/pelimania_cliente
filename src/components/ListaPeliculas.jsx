@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { usePeliculasPerfil } from '../hooks/usePeliculasPerfil'
 import './ListaPeliculas.css'
 import { Pelicula } from './Pelicula'
 
@@ -35,54 +35,26 @@ export function ListaPeliculasBuscador ({ peliculas }) {
 }
 
 export function ListaPeliculasUsuario ({ peliculas, isUser }) {
-  const [width, setWidth] = useState(window.innerWidth)
-  const [anchoPantalla, setAnchoPantalla] = useState(Math.floor(((width * 80 / 100) - 40) / 220))
-  const [ultimaPeli, setUltimaPeli] = useState(anchoPantalla)
-  const [primeraPeli, setPrimeraPeli] = useState(0)
-  const [peliculasFiltro, setPeliculasFiltro] = useState(peliculas.slice(primeraPeli, ultimaPeli))
-  const [visibleRight, setVisibleRight] = useState(true)
-  const [visibleLeft, setVisibleLeft] = useState(false)
+  const {
+    visibleLeft,
+    setVisibleLeft,
+    visibleRight,
+    setVisibleRight,
+    primeraPeli,
+    setPrimeraPeli,
+    ultimaPeli,
+    setUltimaPeli,
+    anchoPantalla,
+    peliculasFiltro,
+    setPeliculasFiltro
+  } = usePeliculasPerfil({ peliculas })
+
   const styleButtonRight = visibleRight ? 'more-button' : 'more-button hidden'
   const styleButtonLeft = visibleLeft ? 'more-button' : 'more-button hidden'
-  console.log('primera Peli: ', primeraPeli)
-  console.log('ultima Peli: ', ultimaPeli - 1)
-  console.log('ancho array: ', anchoPantalla)
 
-  useEffect(() => {
-    const handleResize = (event) => {
-      console.log(event.currentTarget.innerWidth)
-      const newWidth = event.currentTarget.innerWidth
-      setWidth(newWidth)
-      const newAnchoPantalla = Math.floor(((newWidth * 75 / 100) - 40) / 220)
-      setAnchoPantalla(newAnchoPantalla)
-      if (peliculas.length - primeraPeli < newAnchoPantalla) {
-        const newUltimaPeli = peliculas.length
-        setUltimaPeli(newUltimaPeli)
-        const newPrimeraPeli = newUltimaPeli - newAnchoPantalla
-        setPrimeraPeli(newPrimeraPeli)
-        const newPeliculas = peliculas.slice(newPrimeraPeli, newUltimaPeli)
-        setPeliculasFiltro(newPeliculas)
-        console.log('hola')
-        if (peliculas.length - newUltimaPeli === 0) {
-          setVisibleRight(false)
-        }
-      } else {
-        const newUltimaPeli = primeraPeli + newAnchoPantalla
-        setUltimaPeli(newUltimaPeli)
-        const newPeliculas = peliculas.slice(primeraPeli, newUltimaPeli)
-        setPeliculasFiltro(newPeliculas)
-        if (peliculas.length - newUltimaPeli > 0) {
-          setVisibleRight(true)
-        } else {
-          setVisibleRight(false)
-        }
-      }
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [width])
+  // console.log('primera Peli: ', primeraPeli)
+  // console.log('ultima Peli: ', ultimaPeli - 1)
+  // console.log('ancho array: ', anchoPantalla)
 
   const handleClick = () => {
     if (peliculas.length > ultimaPeli) {
