@@ -43,10 +43,16 @@
     padding: 0;
 }
 
+@media only screen and (max-width: 820px) and (orientation: portrait) {
+    .movies-container-list-user {
+        overflow: hidden;
+    }
+}
+
 @media (max-width: 400px) {
     .movies-container-user {
-        margin: 0 0 0 10px;
         gap: 25px;
+        max-width: 100%;
     }
 }
 /*
