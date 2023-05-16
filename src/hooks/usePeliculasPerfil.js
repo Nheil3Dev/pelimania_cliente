@@ -11,7 +11,7 @@ export function usePeliculasPerfil ({ peliculas }) {
 
   useEffect(() => {
     const handleResize = (event) => {
-      console.log(event.currentTarget.innerWidth)
+      // console.log(event.currentTarget.innerWidth)
       const newWidth = event.currentTarget.innerWidth
       setWidth(newWidth)
       const newAnchoPantalla = Math.floor(((newWidth * 75 / 100) - 40) / 220)
