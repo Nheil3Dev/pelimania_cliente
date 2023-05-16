@@ -16,10 +16,8 @@
 /* Estilo de los títulos de cada sección de la página */
 .user-sec-title {
     max-width: 80%;
-    min-width: 70%;
     margin: 0 auto;
     margin-bottom: 20px;
-    padding-left: 40px;
     text-align: start;
 }
 
@@ -34,4 +32,10 @@
     margin: 0 auto;
     padding: 0;
     margin-top: 36px;
+}
+
+@media (max-width: 1200px) {
+    .user-sec-title {
+        max-width: 90%;
+    }
 }

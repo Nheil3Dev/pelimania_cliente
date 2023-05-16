@@ -2,8 +2,7 @@
 .comment-form {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    max-width: 1500px;
+    max-width: 60%;
     margin: 0 auto;
     padding: 20px 0;
     gap: 10px;
@@ -52,16 +51,26 @@
     border: 1px solid white;
 }
 
+@media (max-width: 1200px) {
+    .comment-form {
+        max-width: 90%;
+    }
+}
+
+
 /* Estilo cambia a partir de un ancho de pantalla */
-@media (max-width: 535px) {
+@media (max-width: 585px) {
+    .comment-form-footer input {
+        order: 4;
+    }    
+}
+
+
+
+@media (max-width: 350px) {
     .comment-form-footer {
         justify-content: center;
     }
 }
 
-@media (max-width: 870px) {
-    .comment-form-footer input {
-        order: 4;
-    }    
-}
 

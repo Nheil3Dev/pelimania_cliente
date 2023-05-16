@@ -1,6 +1,7 @@
 /* Estilo contenedor de las estrellas */
 .comment-form-footer-stars {
   display: flex;
+  align-items: center;
   gap: 5px;
 }
 /*
