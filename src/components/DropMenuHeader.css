@@ -55,3 +55,9 @@
         right: 0;
     }
 }
+
+@media (max-width: 450px) {
+    .header-drop-menu {
+        width: 100%;
+    }
+}
