@@ -3,7 +3,7 @@ import { useBuscador } from '../hooks/useBuscador'
 import './FormularioBuscador.css'
 
 export function FormularioBuscador () {
-  const { obtenerPeliculas, busqueda, setBusqueda, setPeliculas, ultimaBusqueda } = useBuscador()
+  const { obtenerPeliculas, busqueda, setBusqueda, setPeliculas, ultimaBusqueda, actualizar, setActualizar } = useBuscador()
   const navigate = useNavigate()
   // Manejador del evento onSubmit
   const handleSubmit = async (event) => {
@@ -15,6 +15,7 @@ export function FormularioBuscador () {
     const nuevasPeliculas = await obtenerPeliculas({ busqueda })
     // Actualizamos el array de películas con las películas obtenidas.
     setPeliculas(nuevasPeliculas)
+    setActualizar(!actualizar)
     navigate('/Pelimania/buscador')
   }
 

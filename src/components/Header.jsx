@@ -52,7 +52,7 @@ export function Header ({ setVisibleLogin, isBuscador }) {
           <Link to='/Pelimania/admin' className={styleAdmin}>ADMIN</Link>
         </nav>}
       <div className='sesion-header'>
-        {!isBuscador && usuario &&
+        {usuario &&
           <>
             <FormularioBuscador />
             <img className='sesion-header-seach-icon' src={lupa} alt='buscar' />

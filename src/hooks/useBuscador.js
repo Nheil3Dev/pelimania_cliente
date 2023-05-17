@@ -3,7 +3,7 @@ import { SearchContext } from '../context/search'
 import { URLS } from '../utils/const'
 
 export function useBuscador () {
-  const ultimaBusqueda = useContext(SearchContext)
+  const { ultimaBusqueda, actualizar, setActualizar } = useContext(SearchContext)
   // Estado para controlar las búsquedas.
   // Valor por defecto la referencia de la ultima búsqueda.
   const [busqueda, setBusqueda] = useState(ultimaBusqueda.current)
@@ -14,13 +14,13 @@ export function useBuscador () {
   // Efecto
   useEffect(() => {
     // Comprueba que la busqueda no esté vacía
-    if (busqueda.length > 0) {
+    if (ultimaBusqueda.current.length > 0) {
       // Petición a la API
-      obtenerPeliculas({ busqueda })
+      obtenerPeliculas({ busqueda: ultimaBusqueda.current })
         // Actualizamos el array de películas.
         .then(peliculas => setPeliculas(peliculas))
     }
-  }, [])
+  }, [actualizar])
 
   // Función asíncrona para realizar peticiones a la API
   const obtenerPeliculas = async ({ busqueda }) => {
@@ -48,5 +48,5 @@ export function useBuscador () {
     }
   }
   // Devolvemos los datos necesarios para los componentes que utilicen el custom hook
-  return { peliculas, busqueda, setBusqueda, setPeliculas, obtenerPeliculas, ultimaBusqueda, error }
+  return { peliculas, busqueda, setBusqueda, setPeliculas, obtenerPeliculas, ultimaBusqueda, error, actualizar, setActualizar }
 }
