@@ -11,19 +11,19 @@
 }
  /* Para separar el resumen de la demás información */
 .extra-content {
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
     margin: 0 auto;
 }
 
 /* Estilo de la plantilla fija */
 .extra-content-headers {
     color: aquamarine;
-    margin-right: 20px;
 }
 
 /* Para alinear las dos secciones: la fija y la que cambia con cada película*/
 .extra-content-headers, .extra-content-info {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }

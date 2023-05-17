@@ -70,5 +70,5 @@ export function useLogin () {
   }
 
   // Devolvemos los datos necesarios para el componente que utiliza el hook
-  return { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError }
+  return { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError, setAnadido }
 }

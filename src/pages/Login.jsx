@@ -10,7 +10,7 @@ export default function Login ({ pressEsc }) {
   // Extraemos los datos necesarios del contexto
   const { setUsuario, sesion, setSesion, admin, setAdmin } = useContext(SesionContext)
   // Extraemos los datos necesarios del custom hook useLogin
-  const { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError } = useLogin()
+  const { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError, setAnadido } = useLogin()
 
   // Controla el valor de la entrada usuario cada vez que cambia su valor
   const handleChangeUser = (evento) => {
@@ -19,6 +19,7 @@ export default function Login ({ pressEsc }) {
     // Actualiza el valor de la variable sin espacios en blanco
     setNombreUsuario(nuevoNombre.trim())
     setError('')
+    setAnadido(false)
   }
 
   // Controla el valor de la entrada contraseña cada vez que cambia su valor
@@ -28,6 +29,7 @@ export default function Login ({ pressEsc }) {
     // Actualiza el valor de la variable sin espacios en blanco
     setContrasena(nuevaContrasena.trim())
     setError('')
+    setAnadido(false)
   }
 
   const pressEspace = (evento) => {
@@ -79,6 +81,22 @@ export default function Login ({ pressEsc }) {
       <main className='entry-form-back' onKeyDown={pressEsc}>
         <section className='entry-form-container'>
           <h1 className='entry-form-title'>Login</h1>
+          {
+          error.length > 0 &&
+          (
+            <div className='entry-form-error'>
+              {error}
+            </div>
+          )
+        }
+          {
+          anadido &&
+          (
+            <div className='entry-form-anadido'>
+              Usuario creado con éxito
+            </div>
+          )
+        }
           <form
             className='entry-form'
             onSubmit={handleSubmit}
@@ -92,6 +110,7 @@ export default function Login ({ pressEsc }) {
               onChange={handleChangeUser}
               onKeyDown={pressEspace}
               className='entry-form-data'
+              autoComplete='off'
             />
             <input
               type='password'
@@ -102,22 +121,6 @@ export default function Login ({ pressEsc }) {
               onKeyDown={pressEspace}
               className='entry-form-data'
             />
-            {
-          error.length > 0 &&
-          (
-            <div className='entry-form-error'>
-              {error}
-            </div>
-          )
-        }
-            {
-          anadido &&
-          (
-            <div className='entry-form-anadido'>
-              Usuario creado con éxito
-            </div>
-          )
-        }
             <div className='entry-form-buttons'>
               <input
                 type='submit'

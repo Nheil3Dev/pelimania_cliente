@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     width: 300px;
     margin: 0 auto;
 }
@@ -42,12 +42,12 @@
     gap: 20px;
     max-width: 100%;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 /* Estilo de los inputs de entrada de información */
 .entry-form-data {
-    padding: 10px;
+    padding: 0 0 15px 10px;
     text-align: center;
     background-color: transparent;
     color: white;
@@ -66,9 +66,7 @@
 }
 
 .entry-form-data:focus {
-    background-color: white;
-    border-radius: 10px;
-    color: black;
+    border-color: aquamarine;
 }
 
 /* Estilo de los inputs tipo submit */
@@ -92,29 +90,35 @@
 /* Estilo del contenedor de errores */
 /*
 .entry-form-error {
+    margin-top: 10px;
+    color: rgb(255, 127, 170);
+}
+*/
+
+.entry-form-error {
     border: 1px solid rgb(255, 127, 170);
     color: rgb(255, 127, 170);
     border-radius: 10px;
     background-color: rgba(255, 127, 170, 0.1);
     padding: 10px 0;
+    width: 80%;
+    margin-bottom: 30px;
 }
-*/
 
-.entry-form-error {
-    margin-top: 10px;
-    color: rgb(255, 127, 170);
-}
 /* Estilo del contenedor de aviso de creación de usuario */
-/*
+
 .entry-form-anadido {
     border: 1px solid aquamarine;
     color: aquamarine;
     border-radius: 10px;
     background-color: rgba(127, 255, 212, 0.1);
     padding: 10px 0;
+    width: 80%;
+    margin-bottom: 30px;
 }
-*/
+/*
 .entry-form-anadido {
     margin-top: 10px;
     color: aquamarine;
 }
+*/
