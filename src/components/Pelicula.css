@@ -1,4 +1,4 @@
-/* Estilo contenedor de la película */
+/* Estilo contenedor de la película en el buscador */
 .movie-container {
     display: flex;
     flex-direction: column;
@@ -6,36 +6,6 @@
     max-width: 200px;
     margin: 0 auto;
     gap: 10px;
-}
-
-/* Estilo de la foto */
-.movie-photo {
-    width: 200px;
-    height: 300px;
-    border-radius: 10px;
-    margin-bottom: 10px; 
-    transition: 0.3s ease all;
-}
-
-/* Estilo de la foto cuando ponemos el ratón encima */
-.movie-photo:hover {
-    transform: scale(1.05);
-    border-radius: 10px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.6);
-}
-
-/* Estilo del título de la película */
-.movie-title {
-    margin: 10px 0;
-    height: 90px;
-    
-}
-
-/* Estilo de la fecha */
-.movie-year {
-    margin: 0;
-    color: aquamarine;
-    font-weight: bold;
 }
 
 /* Estilos del perfil de usuario */
@@ -58,6 +28,12 @@
     width: 100%;
     height: 100%;
     border-radius: 10px;
+}
+
+.movie-year {
+    margin: 0;
+    color: aquamarine;
+    font-weight: bold;
 }
 
 .movie-title-user {
