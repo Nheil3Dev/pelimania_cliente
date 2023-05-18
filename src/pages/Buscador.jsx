@@ -13,12 +13,15 @@ export default function Buscador () {
   const handleSubmit = async (event) => {
     // Cancelamos el comportamiento por defecto
     event.preventDefault()
-    // Actualizamos el valor de la última búsqueda
-    ultimaBusqueda.current = busqueda
-    // Obtenemos las películas
-    const nuevasPeliculas = await obtenerPeliculas({ busqueda })
-    // Actualizamos el array de películas con las películas obtenidas.
-    setPeliculas(nuevasPeliculas)
+    // Comprobamos que no se hace dos veces la misma búsqueda
+    if (busqueda !== ultimaBusqueda.current) {
+      // Actualizamos el valor de la última búsqueda
+      ultimaBusqueda.current = busqueda
+      // Obtenemos las películas
+      const nuevasPeliculas = await obtenerPeliculas({ busqueda })
+      // Actualizamos el array de películas con las películas obtenidas.
+      setPeliculas(nuevasPeliculas)
+    }
   }
 
   // Manejador del evento onChange
