@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import { filtrarComentarios } from '../logic/filtro'
-import { URLS } from '../utils/const'
 
-export function useFiltroAdmin ({ borrado }) {
-  // Estado para controlar los comentarios
-  const [comentarios, setComentarios] = useState([])
+export function useFiltroAdmin ({ comentarios }) {
   // Estado para controlar el filtro de los usuarios
   const [usuarioFiltro, setUsuarioFiltro] = useState('Todos')
   // Estado para controlar el filtro de las películas
@@ -29,16 +26,6 @@ export function useFiltroAdmin ({ borrado }) {
     setComentariosFiltro(comentariosModificados)
   }, [usuarioFiltro, peliculaFiltro, estrellasFiltro, comentarios])
 
-  // Efecto cada vez que se borre un comentario
-  useEffect(() => {
-    // Petición asíncrona al servidor
-    fetch(URLS.COMENTARIOS_ADMIN)
-      // Convertimos la respuesta a json
-      .then(comentarios => comentarios.json())
-      // Actualizamos el array de comentarios
-      .then(comentarios => setComentarios(comentarios))
-  }, [borrado])
-
   // Devolvemos los datos necesarios para el componente que utiliza el hook
-  return { peliculas, comentarios, setComentarios, usuarioFiltro, setUsuarioFiltro, peliculaFiltro, setPeliculaFiltro, estrellasFiltro, setEstrellasFiltro, comentariosFiltro, setComentariosFiltro }
+  return { peliculas, setUsuarioFiltro, setPeliculaFiltro, setEstrellasFiltro, comentariosFiltro }
 }

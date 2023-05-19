@@ -11,9 +11,9 @@ import { PopUp } from './PopUp'
 // usuarios: Lo utilizo para el filtro (para sacar la lista de usuarios)
 export function ComentariosAdmin ({ usuarios }) {
   // Obtenemos los datos necesarios del custom hook useComentariosAdmin.
-  const { visible, setVisible, blur, setBlur, comentarioBorrar, setComentarioBorrar, borrado, setBorrado } = useComentariosAdmin()
+  const { comentarios, visible, setVisible, blur, setBlur, comentarioBorrar, setComentarioBorrar, setBorrado } = useComentariosAdmin()
   // Obtenemos los datos necesarios del custom hook useFiltroAdmin.
-  const { setPeliculaFiltro, setUsuarioFiltro, setEstrellasFiltro, peliculas, comentariosFiltro } = useFiltroAdmin({ borrado })
+  const { setPeliculaFiltro, setUsuarioFiltro, setEstrellasFiltro, peliculas, comentariosFiltro } = useFiltroAdmin({ comentarios })
   // Variable que controla el estilo del background de los comentarios.
   const styleComments = blur ? 'user-comments blur' : 'user-comments'
   // Función para borrar comentarios
