@@ -23,6 +23,26 @@ export function useComentariosAdmin () {
       .then(comentarios => setComentarios(comentarios))
   }, [borrado])
 
+  // Función para borrar comentarios
+  const borrarComentario = (comment) => {
+    // Petición asíncrona al servidor
+    fetch(URLS.COMENTARIO_BORRAR, {
+      method: 'DELETE',
+      body: JSON.stringify(comment),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      // Convertimos la resuesta a formato json
+      .then(respuesta => respuesta.json())
+      // Comprobamos que se ha borrado y actualizamos el estado (para rerender de la lista de comentarios)
+      .then(respuesta => {
+        if (respuesta.borrado) {
+          setBorrado(estadoAnterior => !estadoAnterior)
+        }
+      })
+  }
+
   // Devuelve los datos necesarios para el componente que utilizará el hook
-  return { comentarios, borrado, setBorrado, visible, setVisible, blur, setBlur, comentarioBorrar, setComentarioBorrar }
+  return { comentarios, borrado, setBorrado, visible, setVisible, blur, setBlur, comentarioBorrar, setComentarioBorrar, borrarComentario }
 }
