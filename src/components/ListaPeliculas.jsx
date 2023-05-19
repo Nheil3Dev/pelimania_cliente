@@ -37,16 +37,11 @@ export function ListaPeliculasBuscador ({ peliculas }) {
 export function ListaPeliculasUsuario ({ peliculas, isUser }) {
   const {
     visibleLeft,
-    setVisibleLeft,
     visibleRight,
-    setVisibleRight,
-    primeraPeli,
-    setPrimeraPeli,
-    ultimaPeli,
-    setUltimaPeli,
     anchoPantalla,
     peliculasFiltro,
-    setPeliculasFiltro
+    avanzaPelicula,
+    retrocedePelicula
   } = usePeliculasPerfil({ peliculas })
 
   const styleButtonRight = visibleRight ? 'more-button' : 'more-button hidden'
@@ -57,35 +52,11 @@ export function ListaPeliculasUsuario ({ peliculas, isUser }) {
   // console.log('ancho array: ', anchoPantalla)
 
   const handleClick = () => {
-    if (peliculas.length > ultimaPeli) {
-      if (visibleLeft === false) {
-        setVisibleLeft(true)
-      }
-      const newUltimaPeli = ultimaPeli + 1
-      const newPrimeraPeli = primeraPeli + 1
-      setUltimaPeli(newUltimaPeli)
-      setPrimeraPeli(newPrimeraPeli)
-      setPeliculasFiltro(peliculas.slice(newPrimeraPeli, newUltimaPeli))
-    }
-    if (peliculas.length - ultimaPeli === 1) {
-      setVisibleRight(false)
-    }
+    avanzaPelicula()
   }
 
   const handleClickReturn = () => {
-    if (ultimaPeli - anchoPantalla > 0) {
-      if (visibleRight === false) {
-        setVisibleRight(true)
-      }
-      const newUltimaPeli = ultimaPeli - 1
-      const newPrimeraPeli = primeraPeli - 1
-      setUltimaPeli(newUltimaPeli)
-      setPrimeraPeli(newPrimeraPeli)
-      setPeliculasFiltro(peliculas.slice(newPrimeraPeli, newUltimaPeli))
-      if (newPrimeraPeli === 0) {
-        setVisibleLeft(false)
-      }
-    }
+    retrocedePelicula()
   }
 
   return (

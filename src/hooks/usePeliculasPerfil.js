@@ -9,6 +9,38 @@ export function usePeliculasPerfil ({ peliculas }) {
   const [visibleRight, setVisibleRight] = useState(true)
   const [visibleLeft, setVisibleLeft] = useState(false)
 
+  const avanzaPelicula = () => {
+    if (peliculas.length > ultimaPeli) {
+      if (visibleLeft === false) {
+        setVisibleLeft(true)
+      }
+      const newUltimaPeli = ultimaPeli + 1
+      const newPrimeraPeli = primeraPeli + 1
+      setUltimaPeli(newUltimaPeli)
+      setPrimeraPeli(newPrimeraPeli)
+      setPeliculasFiltro(peliculas.slice(newPrimeraPeli, newUltimaPeli))
+    }
+    if (peliculas.length - ultimaPeli === 1) {
+      setVisibleRight(false)
+    }
+  }
+
+  const retrocedePelicula = () => {
+    if (ultimaPeli - anchoPantalla > 0) {
+      if (visibleRight === false) {
+        setVisibleRight(true)
+      }
+      const newUltimaPeli = ultimaPeli - 1
+      const newPrimeraPeli = primeraPeli - 1
+      setUltimaPeli(newUltimaPeli)
+      setPrimeraPeli(newPrimeraPeli)
+      setPeliculasFiltro(peliculas.slice(newPrimeraPeli, newUltimaPeli))
+      if (newPrimeraPeli === 0) {
+        setVisibleLeft(false)
+      }
+    }
+  }
+
   useEffect(() => {
     const handleResize = (event) => {
       // console.log(event.currentTarget.innerWidth)
@@ -23,7 +55,6 @@ export function usePeliculasPerfil ({ peliculas }) {
         setPrimeraPeli(newPrimeraPeli)
         const newPeliculas = peliculas.slice(newPrimeraPeli, newUltimaPeli)
         setPeliculasFiltro(newPeliculas)
-        console.log('hola')
         if (peliculas.length - newUltimaPeli === 0) {
           setVisibleRight(false)
         }
@@ -47,16 +78,10 @@ export function usePeliculasPerfil ({ peliculas }) {
 
   return {
     visibleLeft,
-    setVisibleLeft,
     visibleRight,
-    setVisibleRight,
     anchoPantalla,
-    setAnchoPantalla,
-    primeraPeli,
-    setPrimeraPeli,
-    ultimaPeli,
-    setUltimaPeli,
     peliculasFiltro,
-    setPeliculasFiltro
+    avanzaPelicula,
+    retrocedePelicula
   }
 }
