@@ -13,7 +13,7 @@ export function ComentariosAdmin ({ usuarios }) {
   // Obtenemos los datos necesarios del custom hook useComentariosAdmin.
   const { comentarios, visible, setVisible, blur, setBlur, comentarioBorrar, setComentarioBorrar, setBorrado } = useComentariosAdmin()
   // Obtenemos los datos necesarios del custom hook useFiltroAdmin.
-  const { setPeliculaFiltro, setUsuarioFiltro, setEstrellasFiltro, peliculas, comentariosFiltro } = useFiltroAdmin({ comentarios })
+  const { peliculas, comentariosFiltro } = useFiltroAdmin({ comentarios })
   // Variable que controla el estilo del background de los comentarios.
   const styleComments = blur ? 'user-comments blur' : 'user-comments'
   // Función para borrar comentarios
@@ -37,7 +37,7 @@ export function ComentariosAdmin ({ usuarios }) {
   }
   return (
     <div>
-      <FiltroComentarios props={{ setPeliculaFiltro, setUsuarioFiltro, setEstrellasFiltro, peliculas, usuarios }} />
+      <FiltroComentarios props={{ peliculas, usuarios }} />
       <ul className={styleComments}>
         {comentariosFiltro.length > 0
           ? (comentariosFiltro.map(comentario => (

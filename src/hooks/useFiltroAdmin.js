@@ -1,15 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { AdminFiltersContext } from '../context/adminFilters'
 import { filtrarComentarios } from '../logic/filtro'
 
 export function useFiltroAdmin ({ comentarios }) {
-  // Estado para controlar el filtro de los usuarios
-  const [usuarioFiltro, setUsuarioFiltro] = useState('Todos')
-  // Estado para controlar el filtro de las películas
-  const [peliculaFiltro, setPeliculaFiltro] = useState('Todas')
-  // Estado para controlar el filtro de las estrellas
-  const [estrellasFiltro, setEstrellasFiltro] = useState('Todas')
   // Estado para controlar los comentarios ya filtrados
   const [comentariosFiltro, setComentariosFiltro] = useState(comentarios)
+  const { peliculaFiltro, usuarioFiltro, estrellasFiltro } = useContext(AdminFiltersContext)
 
   // Creo un array solamente con el titulo de las peliculas
   const peliculasComentarios = comentarios.length > 0 ? comentarios.map(comentario => comentario.titulo) : []
@@ -27,5 +23,5 @@ export function useFiltroAdmin ({ comentarios }) {
   }, [usuarioFiltro, peliculaFiltro, estrellasFiltro, comentarios])
 
   // Devolvemos los datos necesarios para el componente que utiliza el hook
-  return { peliculas, setUsuarioFiltro, setPeliculaFiltro, setEstrellasFiltro, comentariosFiltro }
+  return { peliculas, comentariosFiltro }
 }

@@ -3,10 +3,15 @@
 // setUsuarioFiltro: actualiza el valor del filtro de los usuarios
 // setEstrellasFiltro: actualiza el valor del filtro de las estrellas
 // peliculas: listado de todas las películas
+
+import { useContext } from 'react'
+import { AdminFiltersContext } from '../context/adminFilters'
+
 // usuarios: listado de todos los usuarios
 export function FiltroComentarios ({ props }) {
   // Desestructuramos las props
-  const { setPeliculaFiltro, setUsuarioFiltro, setEstrellasFiltro, peliculas, usuarios } = props
+  const { peliculas, usuarios } = props
+  const { setEstrellasFiltro, setPeliculaFiltro, setUsuarioFiltro } = useContext(AdminFiltersContext)
 
   // Manejador del evento onChange del filtro Peliculas
   const handleChangePelicula = (evento) => {
