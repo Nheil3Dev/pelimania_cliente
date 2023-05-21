@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useUsuarios } from '../hooks/useUsuarios'
+import { ROUTES } from '../utils/const'
 import { PopUp } from './PopUp'
 import './Usuarios.css'
 
@@ -43,7 +44,7 @@ export function Usuario ({ props }) {
   }
   return (
     <section className='user-container'>
-      <Link to={`/Pelimania/perfil/${usuario.usuario}`}><h3 className='user-name'>{usuario.usuario}</h3></Link>
+      <Link to={`${ROUTES.INICIO}perfil/${usuario.usuario}`}><h3 className='user-name'>{usuario.usuario}</h3></Link>
       <button
         className='user-button delete-button'
         onClick={handleClick}

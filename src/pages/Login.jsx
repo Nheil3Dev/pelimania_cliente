@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
 import { SesionContext } from '../context/sesion'
 import { useLogin } from '../hooks/useLogin'
+import { ROUTES } from '../utils/const'
 import './Login.css'
 
 // Componente que se encarga de renderizar la página de login
@@ -77,7 +78,7 @@ export default function Login ({ pressEsc }) {
   // Lo que renderiza esta página
   return (
     <>
-      {(admin && <Navigate to='/Pelimania/admin' />) || (sesion && <Navigate to='/Pelimania/perfil' />)}
+      {(admin && <Navigate to={ROUTES.ADMIN} />) || (sesion && <Navigate to={ROUTES.PERFIL} />)}
       <main className='entry-form-back' onKeyDown={pressEsc}>
         <section className='entry-form-container'>
           <h1 className='entry-form-title'>Login</h1>

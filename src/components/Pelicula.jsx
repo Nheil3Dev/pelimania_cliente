@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ROUTES } from '../utils/const'
 import { BotonSeguir } from './BotonSeguir'
 import './Pelicula.css'
 
@@ -29,7 +30,7 @@ export function PeliculaPerfil ({ pelicula }) {
   }
 
   return (
-    <Link to={`/Pelimania/${pelicula.id}`}>
+    <Link to={`${ROUTES.INICIO}${pelicula.id}`}>
       <div
         className='movie-container-user'
         onMouseMove={handleMouseMove}

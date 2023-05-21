@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { SearchProvider } from './context/search'
+import { ROUTES } from './utils/const'
 
 import Admin from './pages/Admin'
 import Buscador from './pages/Buscador'
@@ -23,12 +24,12 @@ function App () {
     <SearchProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/Pelimania/' element={<Inicio />} />
-          <Route path='/Pelimania/admin' element={<Admin />} />
-          <Route path='/Pelimania/buscador' element={<Buscador />} />
-          <Route path='/Pelimania/perfil' element={<PerfilUsuario />} />
-          <Route path='/Pelimania/perfil/:usuario' element={<PerfilUsuario amigo />} />
-          <Route path='/Pelimania/:id' element={<PerfilPelicula />} />
+          <Route path={ROUTES.INICIO} element={<Inicio />} />
+          <Route path={ROUTES.ADMIN} element={<Admin />} />
+          <Route path={ROUTES.BUSCADOR} element={<Buscador />} />
+          <Route path={ROUTES.PERFIL} element={<PerfilUsuario />} />
+          <Route path={ROUTES.USUARIO} element={<PerfilUsuario amigo />} />
+          <Route path={ROUTES.PELICULA} element={<PerfilPelicula />} />
         </Routes>
       </BrowserRouter>
     </SearchProvider>

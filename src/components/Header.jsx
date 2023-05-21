@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import lupa from '../../public/lupa.svg'
 import { SesionContext } from '../context/sesion'
+import { ROUTES } from '../utils/const'
 import { DropMenuHeader } from './DropMenuHeader'
 import { FormularioBuscador } from './FormularioBuscador'
 import './Header.css'
@@ -29,7 +30,7 @@ export function Header ({ setVisibleLogin, isBuscador }) {
       setSesion(false)
       setAdmin(false)
       window.localStorage.clear()
-      navigate('/Pelimania/')
+      navigate(ROUTES.INICIO)
     } else {
       setVisibleLogin(true)
     }
@@ -37,19 +38,19 @@ export function Header ({ setVisibleLogin, isBuscador }) {
 
   return (
     <header>
-      <Link to='/Pelimania/'>
+      <Link to={ROUTES.INICIO}>
         <div className='logo-header-fondo'>
           <h2 className='logo-header'>PELIMANIA</h2>
         </div>
       </Link>
       {usuario !== 'admin' && usuario &&
         <nav className='links-header'>
-          <Link to='/Pelimania/buscador' className={styleBuscador}>BUSCADOR</Link>
-          <Link to='/Pelimania/perfil' className={stylePerfil}>MI PERFIL</Link>
+          <Link to={ROUTES.BUSCADOR} className={styleBuscador}>BUSCADOR</Link>
+          <Link to={ROUTES.PERFIL} className={stylePerfil}>MI PERFIL</Link>
         </nav>}
       {usuario === 'admin' &&
         <nav className='links-header'>
-          <Link to='/Pelimania/admin' className={styleAdmin}>ADMIN</Link>
+          <Link to={ROUTES.ADMIN} className={styleAdmin}>ADMIN</Link>
         </nav>}
       <div className='sesion-header'>
         {usuario &&

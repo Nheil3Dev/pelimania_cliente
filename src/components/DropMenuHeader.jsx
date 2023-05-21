@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import bars from '../../public/bars.svg'
 import x from '../../public/x.svg'
+import { ROUTES } from '../utils/const'
 import './DropMenuHeader.css'
 
 export function DropMenuHeader ({ props }) {
@@ -21,11 +22,11 @@ export function DropMenuHeader ({ props }) {
         <nav className='header-drop-menu-links'>
           {usuario !== 'admin' && usuario &&
             <>
-              <Link to='/Pelimania/buscador' className='header-drop-menu-link'>BUSCADOR</Link>
-              <Link to='/Pelimania/perfil' className='header-drop-menu-link'>MI PERFIL</Link>
+              <Link to={ROUTES.BUSCADOR} className='header-drop-menu-link'>BUSCADOR</Link>
+              <Link to={ROUTES.PERFIL} className='header-drop-menu-link'>MI PERFIL</Link>
             </>}
           {usuario === 'admin' &&
-            <Link to='/Pelimania/admin' className='header-drop-menu-link'>ADMIN</Link>}
+            <Link to={ROUTES.ADMIN} className='header-drop-menu-link'>ADMIN</Link>}
           <a
             href='#'
             onClick={() => {
@@ -34,7 +35,7 @@ export function DropMenuHeader ({ props }) {
                 setSesion(false)
                 setAdmin(false)
                 window.localStorage.clear()
-                navigate('/Pelimania/')
+                navigate(ROUTES.INICIO)
               } else {
                 setVisibleLogin(true)
               }

@@ -19,3 +19,12 @@ export const URLS = {
   COMENTARIOS_ADMIN: `${url}comentarios/todos`,
   COMENTARIO_BORRAR: `${url}comentarios/borrar`
 }
+
+export const ROUTES = {
+  INICIO: '/Pelimania/',
+  BUSCADOR: '/Pelimania/buscador',
+  PERFIL: '/Pelimania/perfil',
+  USUARIO: '/Pelimania/perfil/:usuario',
+  PELICULA: '/Pelimania/:id',
+  ADMIN: '/Pelimania/admin'
+}
