@@ -21,10 +21,12 @@ export const URLS = {
 }
 
 export const ROUTES = {
-  INICIO: '/Pelimania/',
-  BUSCADOR: '/Pelimania/buscador',
-  PERFIL: '/Pelimania/perfil',
-  USUARIO: '/Pelimania/perfil/:usuario',
-  PELICULA: '/Pelimania/:id',
-  ADMIN: '/Pelimania/admin'
+  INICIO: '/',
+  BUSCADOR: '/buscador',
+  PERFIL: '/perfil',
+  USUARIO: '/perfil/:usuario',
+  USUARIO_VAR: '/perfil/',
+  PELICULA: '/:id',
+  PELICULA_VAR: '/',
+  ADMIN: '/admin'
 }

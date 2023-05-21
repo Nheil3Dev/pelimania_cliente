@@ -30,7 +30,7 @@ export function PeliculaPerfil ({ pelicula }) {
   }
 
   return (
-    <Link to={`${ROUTES.INICIO}${pelicula.id}`}>
+    <Link to={`${ROUTES.PELICULA_VAR}${pelicula.id}`}>
       <div
         className='movie-container-user'
         onMouseMove={handleMouseMove}

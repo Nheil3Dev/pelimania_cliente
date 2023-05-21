@@ -44,7 +44,7 @@ export function Usuario ({ props }) {
   }
   return (
     <section className='user-container'>
-      <Link to={`${ROUTES.INICIO}perfil/${usuario.usuario}`}><h3 className='user-name'>{usuario.usuario}</h3></Link>
+      <Link to={`${ROUTES.USUARIO_VAR}${usuario.usuario}`}><h3 className='user-name'>{usuario.usuario}</h3></Link>
       <button
         className='user-button delete-button'
         onClick={handleClick}

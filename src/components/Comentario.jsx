@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SesionContext } from '../context/sesion'
+import { ROUTES } from '../utils/const'
 import './Comentario.css'
 import { Estrellas } from './Estrellas'
 
@@ -25,13 +26,13 @@ export function Comentario ({ datos, isUser, isAdmin, adminProps }) {
   // Calculamos la ruta cuando pinchemos sobre el nombre de usuario(perfil pelicula) o el nombre de la película(perfil usuario)
   const ruta = isUser // Comprobamos que estamos en el perfil de usuario.
     // la ruta será el perfil de la película
-    ? `/Pelimania/${datos.idPelicula}`
+    ? `${ROUTES.PELICULA_VAR}${datos.idPelicula}`
     // Estamos en el perfil de la película y comprobamos si queremos visitar nuestro perfil o el de otro usuario.
     : (usuario === datos.usuario)
         // Nuestro perfil.
-        ? '/Pelimania/perfil'
+        ? ROUTES.PERFIL
         // El perfil de otro usuario.
-        : `/Pelimania/perfil/${datos.usuario}`
+        : `${ROUTES.USUARIO_VAR}${datos.usuario}`
 
   return (
     <article className='comment-container'>
@@ -43,7 +44,7 @@ export function Comentario ({ datos, isUser, isAdmin, adminProps }) {
               {isUser ? datos.titulo : datos.usuario}
             </h3>
           </Link>
-          {isAdmin && <Link to={`/Pelimania/${datos.idPelicula}`}><h3 className='comment-container-header-user-name'>{datos.titulo}</h3></Link>}
+          {isAdmin && <Link to={`${ROUTES.PELICULA_VAR}${datos.idPelicula}`}><h3 className='comment-container-header-user-name'>{datos.titulo}</h3></Link>}
         </div>
         <h5 className='comment-container-header-date'>
           {datos.fecha}
