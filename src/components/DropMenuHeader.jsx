@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import bars from '../../public/bars.svg'
-import x from '../../public/x.svg'
+import bars from '../assets/bars.svg'
+import x from '../assets/x.svg'
 import { ROUTES } from '../utils/const'
 import './DropMenuHeader.css'
 

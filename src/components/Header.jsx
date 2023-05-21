@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import lupa from '../../public/lupa.svg'
+import lupa from '../assets/lupa.svg'
 import { SesionContext } from '../context/sesion'
 import { ROUTES } from '../utils/const'
 import { DropMenuHeader } from './DropMenuHeader'
