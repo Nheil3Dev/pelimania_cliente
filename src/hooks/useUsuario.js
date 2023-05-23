@@ -28,6 +28,8 @@ export function useUsuario ({ amigo }) {
             setRegistrado(false)
           }
         })
+    }
+    if (!registrado) {
       return
     }
     // Petición asíncrona al servidor para obtener las películas
