@@ -68,11 +68,13 @@ export default function Login ({ pressEsc }) {
       if (nombreUsuario === 'admin') { // Si lo es
         // Actualizamos el estado que controla el administrador a verdadero
         setAdmin(true)
+        window.localStorage.setItem('admin', true)
       } // No lo es
       // Actualizamos el estado que controla el usuario con el nuevo valor
       setUsuario(nombreUsuario)
       // Actualizamos el estado que controla la sesion a verdadero
       setSesion(true)
+      window.localStorage.setItem('sesion', true)
     }
   }
   // Lo que renderiza esta página

@@ -1,8 +1,11 @@
+import { useContext } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { SearchProvider } from './context/search'
+import { SesionContext } from './context/sesion'
 import { ROUTES } from './utils/const'
 
+import RequireAuth from './components/RequireAuth'
 import Admin from './pages/Admin'
 import Buscador from './pages/Buscador'
 import Inicio from './pages/Inicio'
@@ -11,26 +14,18 @@ import PerfilPelicula from './pages/PerfilPelicula'
 import PerfilUsuario from './pages/PerfilUsuario'
 
 function App () {
-  // Creamos una referencia, para que la última búsqueda realizada en el buscador permanezca, por defecto su valor será vacio.
-  // Este valor se actualizará dentro del componente Buscador, lo creo aquí porque este es el componente principal.
-  // const ultimaBusqueda = useRef('')
-  // const { sesion } = useContext(SesionContext)
-  // const [registrado, setRegistrado] = useState(sesion)
-  // Investigar esto
-  // if (!registrado) {
-  //   redirect('/')
-  // }
+  const { sesion, admin } = useContext(SesionContext)
 
   return (
     <SearchProvider>
       <BrowserRouter>
         <Routes>
           <Route path={ROUTES.INICIO} element={<Inicio />} />
-          <Route path={ROUTES.ADMIN} element={<Admin />} />
-          <Route path={ROUTES.BUSCADOR} element={<Buscador />} />
-          <Route path={ROUTES.PERFIL} element={<PerfilUsuario />} />
-          <Route path={ROUTES.USUARIO} element={<PerfilUsuario amigo />} />
-          <Route path={ROUTES.PELICULA} element={<PerfilPelicula />} />
+          <Route path={ROUTES.ADMIN} element={<RequireAuth sesion={admin}><Admin /></RequireAuth>} />
+          <Route path={ROUTES.BUSCADOR} element={<RequireAuth sesion={sesion}><Buscador /></RequireAuth>} />
+          <Route path={ROUTES.PERFIL} element={<RequireAuth sesion={sesion}><PerfilUsuario /></RequireAuth>} />
+          <Route path={ROUTES.USUARIO} element={<RequireAuth sesion={sesion}><PerfilUsuario amigo /></RequireAuth>} />
+          <Route path={ROUTES.PELICULA} element={<RequireAuth sesion={sesion}><PerfilPelicula /></RequireAuth>} />
           <Route path={ROUTES.PAGE404} element={<Page404 />} />
         </Routes>
       </BrowserRouter>

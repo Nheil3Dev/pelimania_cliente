@@ -29,7 +29,9 @@ export function Header ({ setVisibleLogin }) {
       setUsuario('')
       setSesion(false)
       setAdmin(false)
-      window.localStorage.clear()
+      window.localStorage.removeItem('usuario')
+      window.localStorage.removeItem('sesion')
+      window.localStorage.removeItem('admin')
       navigate(ROUTES.INICIO)
     } else {
       setVisibleLogin(true)
