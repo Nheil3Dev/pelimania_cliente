@@ -28,5 +28,6 @@ export const ROUTES = {
   USUARIO_VAR: '/perfil/',
   PELICULA: '/pelicula/:id',
   PELICULA_VAR: '/pelicula/',
-  ADMIN: '/admin'
+  ADMIN: '/admin',
+  PAGE404: '*'
 }

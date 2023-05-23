@@ -31,7 +31,7 @@ function App () {
           <Route path={ROUTES.PERFIL} element={<PerfilUsuario />} />
           <Route path={ROUTES.USUARIO} element={<PerfilUsuario amigo />} />
           <Route path={ROUTES.PELICULA} element={<PerfilPelicula />} />
-          <Route path='*' element={<Page404 />} />
+          <Route path={ROUTES.PAGE404} element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </SearchProvider>

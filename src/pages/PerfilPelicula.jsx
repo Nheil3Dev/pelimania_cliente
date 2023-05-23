@@ -5,6 +5,7 @@ import { Header } from '../components/Header'
 import { InfoExtraPelicula } from '../components/InfoExtraPelicula'
 import { InfoPelicula } from '../components/InfoPelicula'
 import { usePelicula } from '../hooks/usePelicula'
+import Page404 from './Page404'
 import './PerfilPelicula.css'
 
 export default function PerfilPelicula () {
@@ -12,6 +13,12 @@ export default function PerfilPelicula () {
   const { pelicula, siguiendo, setSiguiendo } = usePelicula()
   // Estado para controlar el componente que se renderiza (Comentarios o InfoExtraPelicula)
   const [visible, setVisible] = useState(false)
+
+  if (pelicula.id === undefined) {
+    return (
+      <Page404 />
+    )
+  }
   return (
     <>
       <Header />
