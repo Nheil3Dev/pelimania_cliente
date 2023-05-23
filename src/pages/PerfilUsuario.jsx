@@ -2,13 +2,19 @@ import { Comentario } from '../components/Comentario'
 import { Header } from '../components/Header'
 import { ListaPeliculas } from '../components/ListaPeliculas'
 import { useUsuario } from '../hooks/useUsuario'
+import Page404 from './Page404'
 import './PerfilUsuario.css'
 
 // Componente que se encarga de renderizar la página perfil de usuario
 // amigo: será true cuando el perfil a renderizar sea diferente al del usuario (de otro usuario)
 export default function PerfilUsuario ({ amigo }) {
   // Obtenemos los datos necesarios del custom hook useUsuario.
-  const { peliculasUsuario, comentarios, usuario } = useUsuario({ amigo })
+  const { peliculasUsuario, comentarios, usuario, registrado } = useUsuario({ amigo })
+  // Si el usuario que estamos intentando visitar no existe
+  if (!registrado) {
+    return (<Page404 />)
+  }
+
   return (
     <>
       <Header />

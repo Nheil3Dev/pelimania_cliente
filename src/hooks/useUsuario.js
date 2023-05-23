@@ -15,8 +15,21 @@ export function useUsuario ({ amigo }) {
   const usuarioAmigo = '' || path.match(/perfil\/\w*/)?.toString().split('/').filter(palabra => palabra !== 'perfil').toString()
   // Diferencio si es mi perfil o un perfil distinto
   const usuarioPerfil = amigo ? usuarioAmigo : usuario
+  // Para comprobar que el perfil de usuario al que se quiere acceder es un usuario registrado
+  const [registrado, setRegistrado] = useState(true)
   // Efecto cada vez que cambia el usuario y al montar el componente.
   useEffect(() => {
+    // Comprueba que el usuario que queremos visitar existe (esta registrado)
+    if (amigo) {
+      fetch(`${URLS.USUARIO_LOGIN}/${usuarioPerfil}/no-contrasena`)
+        .then(respuesta => respuesta.json())
+        .then(respuesta => {
+          if (!respuesta.registrado) {
+            setRegistrado(false)
+          }
+        })
+      return
+    }
     // Petición asíncrona al servidor para obtener las películas
     fetch(`${URLS.PELICULAS_SELECT}/${usuarioPerfil}`)
       // Convertimos la respuesta a formato json
@@ -35,5 +48,5 @@ export function useUsuario ({ amigo }) {
   }, [peliculasRef, usuarioPerfil])
 
   // Devolvemos los datos necesarios para el componente que utiliza el hook
-  return { peliculasUsuario, setPeliculasUsuario, comentarios, usuario: usuarioPerfil, setUsuario, sesion }
+  return { peliculasUsuario, setPeliculasUsuario, comentarios, usuario: usuarioPerfil, setUsuario, sesion, registrado }
 }

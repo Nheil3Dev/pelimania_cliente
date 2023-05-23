@@ -12,8 +12,12 @@ export function useSeguir ({ pelicula, setRefresh, isPerfilPelicula }) {
 
   // Efecto cada vez que se monta el componente
   useEffect(() => {
+    // Pasamos por defecto no-id porque no puede estar vacio al enviar el parametro a la api
+    // Esto es para que no nos pete cuando intentamos acceder a una pelicula que no existe ya
+    // que en ese caso el id seria undefined
+    const id = pelicula.id || 'no-id'
     // Petición asíncrona al servidor para comprobar si el usuario sigue la película
-    fetch(`${URLS.PELICULAS_COMPROBAR}/${usuario}/${pelicula.id}`)
+    fetch(`${URLS.PELICULAS_COMPROBAR}/${usuario}/${id}`)
       // Convertimos la respuesta a formato json
       .then(peliculas => peliculas.json())
       // Comprobamos si está siguiendo la película

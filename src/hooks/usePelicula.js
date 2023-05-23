@@ -20,7 +20,7 @@ export function usePelicula () {
     // Obtenemos la ruta
     const path = window.location.pathname
     // Obtenemos el id de la película de la ruta
-    const idPelicula = path.match(/tt\d{7,8}/).toString()
+    const idPelicula = path.split('/').slice(-1).join('')
     // Petición asíncrona al servidor
     fetch(`${URLS.PELICULAS_COMPROBAR}/${usuario}/${idPelicula}`)
       // Convertimos la respuesta a formato json
