@@ -9,7 +9,7 @@ import './Header.css'
 
 // Componente que renderiza el Header
 // setVisibleLogin:
-export function Header ({ setVisibleLogin, isBuscador }) {
+export function Header ({ setVisibleLogin }) {
   // Obtenemos los datos necesarios del contexto.
   const { usuario, setUsuario, setSesion, setAdmin } = useContext(SesionContext)
   // Función para redireccionar.

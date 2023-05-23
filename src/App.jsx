@@ -6,6 +6,7 @@ import { ROUTES } from './utils/const'
 import Admin from './pages/Admin'
 import Buscador from './pages/Buscador'
 import Inicio from './pages/Inicio'
+import Page404 from './pages/Page404'
 import PerfilPelicula from './pages/PerfilPelicula'
 import PerfilUsuario from './pages/PerfilUsuario'
 
@@ -30,6 +31,7 @@ function App () {
           <Route path={ROUTES.PERFIL} element={<PerfilUsuario />} />
           <Route path={ROUTES.USUARIO} element={<PerfilUsuario amigo />} />
           <Route path={ROUTES.PELICULA} element={<PerfilPelicula />} />
+          <Route path='*' element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </SearchProvider>

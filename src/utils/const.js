@@ -26,7 +26,7 @@ export const ROUTES = {
   PERFIL: '/perfil',
   USUARIO: '/perfil/:usuario',
   USUARIO_VAR: '/perfil/',
-  PELICULA: '/:id',
-  PELICULA_VAR: '/',
+  PELICULA: '/pelicula/:id',
+  PELICULA_VAR: '/pelicula/',
   ADMIN: '/admin'
 }
