@@ -8,7 +8,7 @@ export default function Page404 () {
       <section className='page404-container'>
         <h2>Esta página no existe</h2>
         <Link to={ROUTES.INICIO}>
-          <p className='home-link'>Volver a la página de inicio</p>
+          <p className='home-link'>Ir a la página de Inicio</p>
         </Link>
       </section>
     </>
