@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import lupa from '../assets/lupa.svg'
 import { SesionContext } from '../context/sesion'
 import { ROUTES } from '../utils/const'
 import { DropMenuHeader } from './DropMenuHeader'
 import { FormularioBuscador } from './FormularioBuscador'
 import './Header.css'
+import { SearchIcon } from './SearchIcon'
 
 // Componente que renderiza el Header
 // setVisibleLogin:
@@ -58,7 +58,7 @@ export function Header ({ setVisibleLogin }) {
         {usuario &&
           <>
             <FormularioBuscador />
-            <img className='sesion-header-seach-icon' src={lupa} alt='buscar' />
+            <span className='sesion-header-seach-icon'><SearchIcon /></span>
           </>}
         <button className={styleButton} onClick={handleClick}>
           {usuario ? 'Cerrar sesión' : 'Iniciar sesión'}

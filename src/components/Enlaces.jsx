@@ -31,14 +31,14 @@ export function Enlaces ({ setVisible, visible, opcion1, opcion2 }) {
 
   return (
     <form>
-      <label htmlFor='radio' className='anchors'>
+      <div className='anchors'>
         <Enlace style={selected} handleChange={handleChange} visible={visible}>
           {opcion1}
         </Enlace>
         <Enlace style={noSelected} handleChange={handleChange} visible={!visible}>
           {opcion2}
         </Enlace>
-      </label>
+      </div>
     </form>
   )
 }

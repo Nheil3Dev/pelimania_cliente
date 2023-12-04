@@ -1,16 +1,33 @@
 import confetti from 'canvas-confetti'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { URLS } from '../utils/const'
 
-export function useLogin () {
+export function useLogin (setVisibleLogin, visibleLogin) {
   // Estado para controlar el nombre de usuario
-  const [nombreUsuario, setNombreUsuario] = useState('')
+  const [nombreUsuario, setNombreUsuario] = useState('usuario_prueba')
   // Estado para controlar la contraseña
-  const [contrasena, setContrasena] = useState('')
+  const [contrasena, setContrasena] = useState('1234')
   // Estado para controlar los errores
   const [error, setError] = useState('')
   // Estado para controlar cuando se crea un nuevo usuario
   const [anadido, setAnadido] = useState(false)
+
+  const loginRef = useRef(null)
+
+  useEffect(() => {
+    if (!loginRef.current) return
+    const handleClickOutside = (e) => {
+      if (visibleLogin && !loginRef.current?.contains(e.target)) {
+        setVisibleLogin(false)
+      }
+    }
+
+    window.addEventListener('mousedown', handleClickOutside, { capture: true })
+
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside, { capture: true })
+    }
+  }, [visibleLogin])
 
   // Función asíncrona que comprueba que el usuario está registrado
   const verificarUsuario = async (usuario, contrasena, accion) => {
@@ -70,5 +87,5 @@ export function useLogin () {
   }
 
   // Devolvemos los datos necesarios para el componente que utiliza el hook
-  return { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError, setAnadido }
+  return { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError, setAnadido, loginRef }
 }

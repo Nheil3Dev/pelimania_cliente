@@ -1,22 +1,25 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import bars from '../assets/bars.svg'
-import x from '../assets/x.svg'
 import { ROUTES } from '../utils/const'
+import { BarsIcon } from './BarsIcon'
 import './DropMenuHeader.css'
+import { XIcon } from './XIcon'
 
 export function DropMenuHeader ({ props }) {
   const { setUsuario, setSesion, setAdmin, setVisibleLogin, usuario } = props
   const navigate = useNavigate()
   const [visible, setVisible] = useState(false)
   const styleDropMenu = visible ? 'header-drop-menu' : 'header-drop-menu invisible-drop-menu'
-  const icon = visible ? x : bars
   const handleVisible = () => {
     setVisible(!visible)
   }
   return (
     <>
-      <img onClick={handleVisible} className='header-bars' src={icon} alt='drop menu icon' />
+      <span className='header-bars' onClick={handleVisible}>
+        {!visible
+          ? <BarsIcon />
+          : <XIcon />}
+      </span>
       <input type='checkbox' id='bars' />
       <div className={styleDropMenu}>
         <nav className='header-drop-menu-links'>

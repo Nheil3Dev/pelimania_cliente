@@ -7,11 +7,11 @@ import './Login.css'
 
 // Componente que se encarga de renderizar la página de login
 // pressEsc: Manejador de evento onKeyDown
-export default function Login ({ pressEsc }) {
+export default function Login ({ setVisibleLogin, visibleLogin }) {
   // Extraemos los datos necesarios del contexto
   const { setUsuario, sesion, setSesion, admin, setAdmin } = useContext(SesionContext)
   // Extraemos los datos necesarios del custom hook useLogin
-  const { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError, setAnadido } = useLogin()
+  const { nombreUsuario, setNombreUsuario, contrasena, setContrasena, error, anadido, verificarUsuario, setError, setAnadido, loginRef } = useLogin(setVisibleLogin, visibleLogin)
 
   // Controla el valor de la entrada usuario cada vez que cambia su valor
   const handleChangeUser = (evento) => {
@@ -81,8 +81,8 @@ export default function Login ({ pressEsc }) {
   return (
     <>
       {(admin && <Navigate to={ROUTES.ADMIN} />) || (sesion && <Navigate to={ROUTES.PERFIL} />)}
-      <main className='entry-form-back' onKeyDown={pressEsc}>
-        <section className='entry-form-container'>
+      <div className='entry-form-back'>
+        <section ref={loginRef} className='entry-form-container'>
           <h1 className='entry-form-title'>Login</h1>
           {
           error.length > 0 &&
@@ -140,7 +140,7 @@ export default function Login ({ pressEsc }) {
             </div>
           </form>
         </section>
-      </main>
+      </div>
     </>
   )
 }

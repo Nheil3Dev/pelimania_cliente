@@ -1,9 +1,18 @@
 import { useNavigate } from 'react-router-dom'
 import { useBuscador } from '../hooks/useBuscador'
+import { ROUTES } from '../utils/const'
 import './FormularioBuscador.css'
 
 export function FormularioBuscador () {
-  const { obtenerPeliculas, busqueda, setBusqueda, setPeliculas, ultimaBusqueda, actualizar, setActualizar } = useBuscador()
+  const {
+    obtenerPeliculas,
+    busqueda,
+    setBusqueda,
+    setPeliculas,
+    ultimaBusqueda,
+    actualizar,
+    setActualizar
+  } = useBuscador()
   const navigate = useNavigate()
   // Manejador del evento onSubmit
   const handleSubmit = async (event) => {
@@ -16,7 +25,7 @@ export function FormularioBuscador () {
     // Actualizamos el array de películas con las películas obtenidas.
     setPeliculas(nuevasPeliculas)
     setActualizar(!actualizar)
-    navigate('/Pelimania/buscador')
+    navigate(ROUTES.BUSCADOR)
   }
 
   // Manejador del evento onChange
@@ -37,7 +46,11 @@ export function FormularioBuscador () {
         placeholder='Batman, Harry Potter...'
         className='movie-search-form-input-header'
       />
-      <input type='submit' value='Buscar' className='movie-search-form-input-submit-header' />
+      <input
+        type='submit'
+        value='Buscar'
+        className='movie-search-form-input-submit-header'
+      />
     </form>
   )
 }
